@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node pkg="turtlesim"
+          type="turtlesim_node"
+          name="turtle"
+          respawn="true"
+          respawn_delay="3"
+          output="screen"
+          ns="uclamobility"
+    >
+
+        <!--
+         remap topic name, from is the original name,　to is the new name
+         -->
+<!--        <remap from="turtle1/pose" to="/pose" />-->
+<!--        <remap from="turtle1/pose" to="pose" />-->
+        
+        <remap from="/uclamobility/turtle1/cmd_vel" to="/cmd_vel" />
+
+    </node>
+
+
+</launch>

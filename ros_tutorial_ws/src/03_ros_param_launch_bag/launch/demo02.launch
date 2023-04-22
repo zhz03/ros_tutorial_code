@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!--config multiple nodes -->
+
+    <!--
+        pkg　pakage name
+        type: executable file name
+        name: node namer 
+        respawn　daemon
+        output ouput log file，screen to output on terminal
+        ns namespace
+    -->
+    <node pkg="turtlesim"
+          type="turtlesim_node"
+          name="turtle"
+          respawn="true"
+          respawn_delay="3"
+          output="screen"
+          ns="uclamobility"
+    ></node>
+
+    <node pkg="turtlesim" type="turtle_teleop_key" name="teleop"></node>
+
+</launch>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!--config multiple nodes -->
+
+    <!--
+        pkg　pakage name
+        type: executable file name
+        name: node namer 
+    -->
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim"></node>
+    <node pkg="turtlesim" type="turtle_teleop_key" name="teleop_turtle"></node>
+
+</launch>

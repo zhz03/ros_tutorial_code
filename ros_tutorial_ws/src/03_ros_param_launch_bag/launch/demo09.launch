@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+
+
+    <!-- arguments -->
+    <node pkg="03_ros_param_launch_bag"
+          type="param_node.py"
+          name="mobility_node"
+          respawn="true"
+          respawn_delay="3"
+          output="screen"
+          ns="uclamobility"
+    >
+    </node>
+
+    <!-- absolute path 
+        $(find pkg)is to find out the abs path of the package
+    -->
+    <include file="$(find 03_ros_param_launch_bag)/launch/demo04.launch"></include>
+
+
+</launch>

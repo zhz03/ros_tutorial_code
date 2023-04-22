@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+
+    <param name="bxg" type="int" value="120"/>
+    <param name="param" type="str" value="hi"/>
+
+    <node pkg="03_ros_param_launch_bag"
+          type="param_node.py"
+          name="mobility_node"
+          respawn="true"
+          respawn_delay="3"
+          output="screen"
+          ns="uclamobility"
+    >
+        <!--
+        /ns/node_name/param_name
+        -->
+
+        <param name="bxg" type="int" value="110"/>
+        <param name="param" type="str" value="hello"/>
+
+        
+    </node>
+
+
+</launch>
