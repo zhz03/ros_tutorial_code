@@ -1,0 +1,155 @@
+<launch>
+
+
+<!-- Display turtle window -->
+    <node pkg="turtlesim"
+          type="turtlesim_node"
+          name="turtlesim"
+          output="screen"
+          respawn="true"
+    ></node>
+
+<!-- First turtle -->
+    <node pkg="04_ros_tf"
+          type="turtle_node.py"
+          name="turtle_a"
+          output="screen"
+          respawn="true"
+    >
+        <param name="name" value="turtle_a" type="str"/>
+        <param name="x" value="5" type="double"/>
+        <param name="y" value="5" type="double"/>
+        <param name="theta" value="0" type="double"/>
+    </node>
+
+<!-- Second turtle -->
+    <node pkg="04_ros_tf"
+          type="turtle_node.py"
+          name="turtle_b"
+          output="screen"
+          respawn="true"
+    >
+        <param name="name" value="turtle_b" type="str"/>
+        <param name="x" value="8" type="double"/>
+        <param name="y" value="1" type="double"/>
+        <param name="theta" value="0" type="double"/>
+    </node>
+
+<!-- Third turtle -->
+    <node pkg="04_ros_tf"
+          type="turtle_node.py"
+          name="turtle_c"
+          output="screen"
+          respawn="true"
+    >
+        <param name="name" value="turtle_c" type="str"/>
+        <param name="x" value="1" type="double"/>
+        <param name="y" value="8" type="double"/>
+        <param name="theta" value="0" type="double"/>
+    </node>
+
+<!-- Fourth turtle -->
+    <node pkg="04_ros_tf"
+          type="turtle_node.py"
+          name="turtle_d"
+          output="screen"
+          respawn="true"
+    >
+        <param name="name" value="turtle_d" type="str"/>
+        <param name="x" value="8" type="double"/>
+        <param name="y" value="8" type="double"/>
+        <param name="theta" value="0" type="double"/>
+    </node>
+
+    <!-- Fifth turtle -->
+    <node pkg="04_ros_tf"
+          type="turtle_node.py"
+          name="turtle_e"
+          output="screen"
+          respawn="true"
+    >
+        <param name="name" value="turtle_e" type="str"/>
+        <param name="x" value="1" type="double"/>
+        <param name="y" value="1" type="double"/>
+        <param name="theta" value="0" type="double"/>
+    </node>
+
+    <!-- keyboard control -->
+    <node pkg="turtlesim"
+          type="turtle_teleop_key"
+          name="turtle_a_ctrl"
+          output="screen"
+          respawn="true"
+    >
+        <remap from="/turtle1/cmd_vel" to="/turtle_a/cmd_vel"/>
+    </node>
+
+    <!-- static tf publish-->
+    <!-- tf static_transform_publisher -->
+    <!-- x y z yaw pitch roll frame_id child_frame_id  period(hz) -->
+    <node pkg="tf"
+          type="static_transform_publisher"
+          name="turtle_a_left"
+          args="0 1 0 0 0 0 /turtle_a /turtle_a_left 10"></node>
+
+    <node pkg="tf"
+          type="static_transform_publisher"
+          name="turtle_a_right"
+          args="0 -1 0 0 0 0 /turtle_a /turtle_a_right 10"></node>
+
+    <node pkg="tf"
+          type="static_transform_publisher"
+          name="turtle_a_back"
+          args="-1 0 0 0 0 0 /turtle_a /turtle_a_back 10"></node>
+
+    <node pkg="tf"
+          type="static_transform_publisher"
+          name="turtle_a_front"
+          args="1 0 0 0 0 0 /turtle_a /turtle_a_front 10"></node>
+
+
+    <!-- B follow A on the right side -->
+    <node pkg="04_ros_tf"
+          type="follow_node.py"
+          name="follow_left"
+          output="screen"
+          respawn="true"
+    >
+        <param name="follow" value="turtle_b" type="str"/>
+        <param name="parent" value="turtle_a_left" type="str"/>
+    </node>
+
+    <!-- C follow right side of A -->
+    <node pkg="04_ros_tf"
+          type="follow_node.py"
+          name="follow_right"
+          output="screen"
+          respawn="true"
+    >
+        <param name="follow" value="turtle_c" type="str"/>
+        <param name="parent" value="turtle_a_right" type="str"/>
+    </node>
+
+    <!-- D follow the back of A-->
+    <node pkg="04_ros_tf"
+          type="follow_node.py"
+          name="follow_back"
+          output="screen"
+          respawn="true"
+    >
+        <param name="follow" value="turtle_d" type="str"/>
+        <param name="parent" value="turtle_a_back" type="str"/>
+    </node>
+
+    <!-- E follow the front of A -->
+    <node pkg="04_ros_tf"
+          type="follow_node.py"
+          name="follow_front"
+          output="screen"
+          respawn="true"
+    >
+        <param name="follow" value="turtle_e" type="str"/>
+        <param name="parent" value="turtle_a_front" type="str"/>
+    </node>
+
+</launch>
