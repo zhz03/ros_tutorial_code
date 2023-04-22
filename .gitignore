@@ -1,0 +1,8 @@
+
+ros_tutorial_ws/build/
+
+ros_tutorial_ws/devel/
+
+ros_tutorial_ws/.catkin_workspace
+
+ros_tutorial_ws/src/CMakeLists.txt
