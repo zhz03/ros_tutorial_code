@@ -10,13 +10,13 @@ if __name__ == '__main__':
 
     # topic name, needs to be unique
     # name rules: '/a/b/c/d'
-    topic_name = '/hello/itcast'
+    topic_name = '/hello/uclamobility'
     # data_class: data type
     # using String
     publisher = rospy.Publisher(topic_name, String, queue_size=100)
 
     count = 0
-
+    print("/hello/uclamobility is publishing, check it in another terminal using 'rostopic list'")
     rate = rospy.Rate(4)
     while not rospy.is_shutdown():
         # send out the data
