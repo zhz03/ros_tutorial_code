@@ -31,3 +31,10 @@ The structure of this tutorial is:
 ```
 
 Please remember, you need to compile the package before you can see `build` and `devel`. And you cannot use ROS package before you compile it first. 
+
+Please check your understanding after you finish each section:
+
+- [01_ros_basic](https://forms.gle/FGj8bHxwHYmRkREE9)
+- [02_rostopics](https://forms.gle/xYS99827kzK3uNN16)
+- [03_ros_param_launch_bag](https://forms.gle/by3qsk8v9gaMhofG7)
+
